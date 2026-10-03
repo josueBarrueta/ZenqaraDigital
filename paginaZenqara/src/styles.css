@@ -1,1 +1,14 @@
 @import "primeicons/primeicons.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #080808;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
