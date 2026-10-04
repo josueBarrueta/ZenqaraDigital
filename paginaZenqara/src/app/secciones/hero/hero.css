@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 105px 6% 0;
-  background: #080808;
+  background: transparent;
 }
 
 /* Quitar el subrayado de los enlaces */
@@ -27,12 +27,7 @@
 }
 
 .hero-atmosphere::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, #080808 8%, #080808aa 48%, transparent 85%),
-    linear-gradient(0deg, #080808, transparent 35%);
+  content: none;
 }
 
 .hero-orbit {
@@ -173,7 +168,7 @@
 
 .hero-secondary:hover {
   border-color: #888;
-  background: #ffffff08;
+  background: transparent;
   transform: translateY(-2px);
 }
 
@@ -212,7 +207,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #555;
+  background: transparent;
 }
 
 .hero-scroll {
