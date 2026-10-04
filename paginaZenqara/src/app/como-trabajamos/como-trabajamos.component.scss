@@ -125,7 +125,7 @@ blockquote {
   }
   .step-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
   .step-list button {
     padding: 12px;
@@ -137,11 +137,31 @@ blockquote {
     padding: 24px;
   }
   .journey-preview {
-    flex-wrap: wrap;
-    gap: 22px;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 36px;
+    padding-left: 4px;
   }
+
   .journey-preview > span {
-    flex: 1 0 25%;
+    flex: none;
+    min-height: 42px;
+    padding: 0 0 22px 24px;
+    border-top: 0;
+    border-left: 1px solid #444;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .journey-preview > span:last-child {
+    min-height: 20px;
+    padding-bottom: 0;
+    border-left-color: transparent;
+  }
+
+  .journey-preview i {
+    top: 6px;
+    left: -4px;
   }
 }
 @media (max-width: 420px) {
