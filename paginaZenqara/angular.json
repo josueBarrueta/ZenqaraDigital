@@ -30,6 +30,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/ZenqaraDigital/",
               "budgets": [
                 {
                   "type": "initial",

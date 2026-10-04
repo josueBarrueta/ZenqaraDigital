@@ -1,3 +1,4 @@
+import { RouterLink } from '@angular/router';
 import {
   AfterViewInit,
   Component,
@@ -16,7 +17,7 @@ import { NgTemplateOutlet } from "@angular/common";
 @Component({
   selector: "app-scroll-story",
   standalone: true,
-  imports: [NgTemplateOutlet],
+  imports: [NgTemplateOutlet, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { style: "display: contents" },
   templateUrl: "./scroll-story.html",
