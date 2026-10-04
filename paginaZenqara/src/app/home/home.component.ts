@@ -9,11 +9,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { WebTypes } from '../secciones/web-types/web-types';
 import { Maintenance } from '../secciones/maintenance/maintenance';
 import { Faq } from '../secciones/faq/faq';
+import { SiteFooterComponent } from '../secciones/site-footer/site-footer';
 
 gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-home',
-  imports: [SiteHeaderComponent, Hero, ScrollStoryComponent, Services, Process, WebTypes, Maintenance, Faq],
+  imports: [SiteHeaderComponent, Hero, ScrollStoryComponent, Services, Process, WebTypes, Maintenance, Faq, SiteFooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

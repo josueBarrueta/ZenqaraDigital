@@ -1,0 +1,10 @@
+@use "./styles/shared";
+@use "./styles/mail";
+
+@import "primeicons/primeicons.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
