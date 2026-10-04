@@ -4,10 +4,12 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { RouterLink, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+
 import { SiteHeaderComponent } from '../secciones/site-header/site-header';
 import { SiteFooterComponent } from '../secciones/site-footer/site-footer';
 import { RevealDirective } from '../shared/reveal/reveal';
+
 @Component({
   selector: 'app-hablemos',
   imports: [
@@ -27,18 +29,61 @@ export class HablemosComponent {
     'Mantenimiento de servidores web',
     'Necesito orientación',
   ];
+
   readonly selected = signal(this.initialService());
   readonly business = signal('');
   readonly idea = signal('');
+
   private initialService(): string {
-    const service =
-      inject(ActivatedRoute).snapshot.queryParamMap.get('servicio');
+    const service = inject(ActivatedRoute)
+      .snapshot.queryParamMap.get('servicio');
+
     return service && this.options.includes(service)
       ? service
       : 'Necesito orientación';
   }
+
   composeUrl(): string {
-    const body = `Hola, Zenqara:\n\nMe interesa: ${this.selected()}.\n\nMi negocio: ${this.business().trim() || 'Por concretar'}.\n\nLo que quiero conseguir:\n${this.idea().trim() || 'Me gustaría hablar de mi proyecto y definir las necesidades.'}\n\nGracias.`;
-    return `https://mail.google.com/mail/?${new URLSearchParams({ view: 'cm', fs: '1', to: 'zenqara.digital@gmail.com', su: 'Consulta sobre mi proyecto web', body })}`;
+    const servicio = this.selected();
+    const negocio = this.business().trim();
+    const idea = this.idea().trim();
+
+    const body = [
+      'Hola, equipo de Zenqara Digital:',
+      '',
+      'Me gustaría hablar con vosotros sobre mi proyecto.',
+      '',
+      '────────────────────────',
+      'MI PROYECTO WEB',
+      '────────────────────────',
+      '',
+      'Servicio que me interesa',
+      servicio,
+      '',
+      'Sobre mi negocio',
+      negocio ||
+        'Me gustaría contaros más en una primera conversación.',
+      '',
+      'Lo que quiero conseguir',
+      idea ||
+        'Necesito orientación para definir mi próxima web.',
+      '',
+      '────────────────────────',
+      '',
+      '¿Podéis orientarme sobre las posibilidades y los siguientes pasos?',
+      '',
+      'Muchas gracias por vuestro tiempo.',
+      'Un saludo.',
+    ].join('\n');
+
+    const params = new URLSearchParams({
+      view: 'cm',
+      fs: '1',
+      to: 'zenqara.digital@gmail.com',
+      su: `Nuevo proyecto · ${servicio}`,
+      body,
+    });
+
+    return `https://mail.google.com/mail/?${params}`;
   }
 }
