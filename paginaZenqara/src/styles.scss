@@ -8,3 +8,11 @@
 *::after {
   box-sizing: border-box;
 }
+
+// Evita el destello nativo al tocar controles en navegadores móviles.
+a,
+button,
+summary,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}

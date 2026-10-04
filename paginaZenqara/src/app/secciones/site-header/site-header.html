@@ -4,8 +4,18 @@
   </a>
 
   <nav class="navigation" aria-label="Navegación principal">
-    <a href="#services">Servicios</a>
-    <a href="#process">Cómo trabajamos</a>
-    <a class="nav-contact" href="#contact">Hablemos ↗</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Cómo trabajamos</a>
+    <a class="nav-contact" href="#contacto">Hablemos ↗</a>
+    <details class="mobile-menu" #mobileMenu (keydown.escape)="mobileMenu.open = false; menuToggle.focus()">
+      <summary #menuToggle aria-label="Menú de navegación">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </summary>
+      <div class="mobile-menu-panel">
+        <a href="#servicios" (click)="mobileMenu.open = false">Servicios <span aria-hidden="true">↗</span></a>
+        <a href="#proceso" (click)="mobileMenu.open = false">Cómo trabajamos <span aria-hidden="true">↗</span></a>
+        <a href="#contacto" (click)="mobileMenu.open = false">Hablemos <span aria-hidden="true">↗</span></a>
+      </div>
+    </details>
   </nav>
 </header>
