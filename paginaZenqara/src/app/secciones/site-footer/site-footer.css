@@ -1,73 +1,127 @@
 footer .brand {
   color: #ddd;
   font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
 }
+
 footer p {
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
+
 footer {
+  box-sizing: border-box;
   padding: 35px 5%;
   display: flex;
   justify-content: space-between;
   gap: 30px;
   align-items: center;
   color: #888;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
+  font-weight: 400;
   flex-wrap: wrap;
 }
+
+.footer-info {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .footer-info p {
   margin: 0 0 8px;
 }
+
 .footer-links {
   display: flex;
+  min-width: 0;
+  max-width: 100%;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 16px 24px;
 }
+
 .footer-links a {
   color: #bbb;
   font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  max-width: 100%;
   min-height: 44px;
 }
+
 .footer-links a:hover {
   color: #fff;
 }
+
 .footer-links .footer-email {
   overflow-wrap: anywhere;
 }
+
 .footer-email span {
   min-width: 0;
 }
+
+.footer-email svg {
+  flex-shrink: 0;
+}
+
 .footer-links a:focus-visible {
   outline: 2px solid #eee;
   outline-offset: 7px;
 }
+
 .footer-email {
   --envelope-background: #111;
 }
+
 @media (min-width: 1600px) {
   footer {
     max-width: 1600px;
     margin: auto;
   }
 }
+
 @media (max-width: 800px) {
   footer {
     flex-wrap: wrap;
     padding: 30px 6%;
     align-items: flex-start;
   }
+
   footer p {
     display: none;
   }
+
   .footer-links {
     width: 100%;
     justify-content: flex-start;
   }
+
   .footer-links a:nth-child(2) {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 500px) {
+  footer {
+    gap: 20px;
+  }
+
+  .footer-links {
+    gap: 10px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-links {
+    gap: 8px 14px;
   }
 }

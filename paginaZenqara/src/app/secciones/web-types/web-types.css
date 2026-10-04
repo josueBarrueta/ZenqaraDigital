@@ -2,6 +2,7 @@
   display: block;
   color: #f4f4ef;
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
 }
 
 .web-types,
@@ -12,13 +13,14 @@
 .web-types {
   width: 100%;
   margin: 0;
-  padding: 80px clamp(24px, 6vw, 88px);
+  padding: 80px clamp(16px, 6vw, 88px);
   background: transparent;
 }
 
 /* Encabezado */
 .section-heading {
   max-width: 1040px;
+  min-width: 0;
   margin: 0 auto;
 }
 
@@ -29,16 +31,18 @@
   font-weight: 400;
   letter-spacing: 0.16em;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .section-heading h2 {
   max-width: 760px;
   margin: 0 0 28px;
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: clamp(32px, 5vw, 64px);
   font-weight: 300;
-  line-height: 1.08;
+  line-height: 1.12;
   letter-spacing: -0.035em;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 .section-heading h2 strong,
@@ -50,10 +54,11 @@
   max-width: 580px;
   margin: 0;
   color: #aaa;
-  font-size: 15px;
+  font-size: clamp(14px, 1.2vw, 15px);
   font-weight: 400;
   letter-spacing: normal;
   line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
 /* Tarjetas */
@@ -71,7 +76,7 @@
   gap: 0 6%;
   min-height: 430px;
   margin-bottom: 65px;
-  padding: 45px;
+  padding: clamp(28px, 3.5vw, 45px);
   background: #191919;
   overflow: hidden;
 }
@@ -98,6 +103,7 @@
   letter-spacing: 0.16em;
   line-height: 1.6;
   color: #aaa;
+  overflow-wrap: anywhere;
 }
 
 .stack-card:nth-child(3) > .eyebrow {
@@ -106,10 +112,11 @@
 
 .stack-card h3 {
   margin: 18px 0;
-  font-size: clamp(32px, 4vw, 58px);
+  font-size: clamp(28px, 4vw, 58px);
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.035em;
+  overflow-wrap: break-word;
 }
 
 .stack-card p {
@@ -119,6 +126,7 @@
   font-weight: 400;
   letter-spacing: normal;
   line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
 .stack-card:nth-child(3) p {
@@ -133,8 +141,12 @@
 }
 
 .card-keywords span {
+  min-width: 0;
   font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
   color: #999;
+  overflow-wrap: anywhere;
 }
 
 .stack-card:nth-child(3) .card-keywords span {
@@ -147,6 +159,7 @@
   grid-row: 1 / 6;
   align-self: center;
   min-width: 0;
+  max-width: 100%;
   background: #f0f0eb;
   color: #222;
   border: 1px solid #555;
@@ -163,11 +176,15 @@
 
 .type-browser {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 6px;
   padding: 10px 12px;
   font-size: 8px;
+  line-height: 1.5;
   background: #333;
   color: #aaa;
+  overflow-wrap: anywhere;
 }
 
 .type-page {
@@ -176,9 +193,13 @@
 
 .type-nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 8px;
   font-size: 9px;
+  line-height: 1.5;
   margin-bottom: 20px;
+  overflow-wrap: anywhere;
 }
 
 .type-nav span {
@@ -216,15 +237,20 @@
 .type-page strong {
   display: block;
   font-size: clamp(20px, 2.5vw, 34px);
-  font-weight: 400;
-  line-height: 1.1;
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  overflow-wrap: break-word;
 }
 
 .type-preview-footer {
   display: flex;
-  gap: 25px;
+  flex-wrap: wrap;
+  gap: 12px 25px;
   margin-top: 22px;
   font-size: 8px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .type-preview--campaign {
@@ -242,6 +268,7 @@
 .type-label {
   font-size: 7px;
   letter-spacing: 2px;
+  overflow-wrap: anywhere;
 }
 
 .type-campaign-orb {
@@ -260,11 +287,14 @@
 
 .type-cta {
   display: inline-block;
+  max-width: 100%;
   background: #eee;
   color: #111;
   padding: 10px 15px;
   margin-top: 20px;
   font-size: 8px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .type-dashboard {
@@ -296,13 +326,17 @@
 .type-dashboard-main small {
   font-size: 7px;
   color: #888;
+  overflow-wrap: anywhere;
 }
 
 .type-dashboard-main strong {
   display: block;
   font-size: 20px;
   margin-top: 12px;
-  font-weight: 400;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
 }
 
 .type-chart {
@@ -315,6 +349,7 @@
 
 .type-chart i {
   flex: 1;
+  min-width: 0;
   height: 35%;
   background: #777;
   transform-origin: bottom;
@@ -364,11 +399,11 @@
 /* Móvil */
 @media (max-width: 700px) {
   .web-types {
-    padding: 56px 24px;
+    padding: 56px clamp(16px, 4vw, 24px);
   }
 
   .section-heading h2 {
-    font-size: clamp(32px, 8.5vw, 42px);
+    font-size: clamp(28px, 8.5vw, 42px);
     margin-bottom: 24px;
   }
 
@@ -405,10 +440,41 @@
 
   .stack-card h3 {
     margin: 0;
+    font-size: clamp(28px, 7vw, 42px);
   }
 
   .card-keywords {
     margin-top: 0;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 380px) {
+  .stack-card {
+    padding: 24px 16px;
+  }
+
+  .type-page {
+    padding: 16px;
+  }
+
+  .type-preview--campaign .type-page {
+    padding: 20px 16px;
+  }
+
+  .type-dashboard-main {
+    padding: 20px 12px;
+  }
+
+  .card-keywords {
+    gap: 8px 12px;
+  }
+}
+
+/* Pantallas con poca altura */
+@media (max-height: 700px) {
+  .stack-card {
+    position: static;
   }
 }
 

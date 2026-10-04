@@ -8,6 +8,14 @@
   justify-content: center;
   padding: 105px 6% 0;
   background: transparent;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+}
+
+.hero *,
+.hero *::before,
+.hero *::after {
+  box-sizing: border-box;
 }
 
 /* Quitar el subrayado de los enlaces */
@@ -84,6 +92,7 @@
 .hero-copy {
   width: 100%;
   max-width: 1040px;
+  min-width: 0;
 }
 
 .hero-kicker {
@@ -93,8 +102,10 @@
   margin: 0 0 38px;
   color: #aaa;
   font-size: 10px;
+  font-weight: 400;
   letter-spacing: 0.18em;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .hero-kicker > span {
@@ -110,10 +121,11 @@
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
   max-width: 980px;
-  font-size: clamp(64px, 7.8vw, 120px);
-  line-height: 1.05;
+  font-size: clamp(48px, 7.8vw, 120px);
+  line-height: 1.08;
   letter-spacing: -0.035em;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 .hero h1 em {
@@ -125,8 +137,10 @@
   max-width: 630px;
   margin: 32px 0 0;
   color: #a6a6a6;
-  font-size: 16px;
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 400;
   line-height: 1.85;
+  overflow-wrap: break-word;
 }
 
 .hero .actions {
@@ -140,13 +154,16 @@
 .hero-primary,
 .hero-secondary {
   min-height: 52px;
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
   padding: 16px 22px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
   border: 1px solid #333;
   border-radius: 4px;
   transition:
@@ -186,19 +203,24 @@
 
 .hero-bottom {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  margin-top: 95px;
+  margin-top: clamp(48px, 6.2vw, 95px);
   padding: 25px 0;
   border-top: 1px solid #ffffff18;
 }
 
 .hero-disciplines {
   display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
   gap: 18px;
   align-items: center;
   font-size: 10px;
+  font-weight: 400;
+  line-height: 1.6;
   letter-spacing: 0.03em;
   color: #888;
 }
@@ -206,6 +228,7 @@
 .hero-disciplines i {
   width: 3px;
   height: 3px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: transparent;
 }
@@ -215,6 +238,8 @@
   align-items: center;
   gap: 16px;
   font-size: 10px;
+  font-weight: 400;
+  line-height: 1.6;
   color: #aaa;
 }
 
@@ -242,7 +267,7 @@
   }
 
   .hero h1 {
-    font-size: clamp(58px, 10vw, 82px);
+    font-size: clamp(44px, 10vw, 82px);
   }
 
   .hero-orbit {
@@ -266,7 +291,9 @@
   }
 
   .hero h1 {
-    font-size: clamp(46px, 12.5vw, 64px);
+    font-size: clamp(32px, 10.5vw, 52px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
   }
 
   .hero .intro {
@@ -298,6 +325,32 @@
 
   .hero-disciplines {
     gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-kicker {
+    letter-spacing: 0.12em;
+  }
+
+  .hero-primary,
+  .hero-secondary {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .hero-disciplines {
+    gap: 8px;
+  }
+}
+
+@media (max-height: 600px) and (min-width: 501px) {
+  .hero {
+    padding-top: 48px;
+  }
+
+  .hero-bottom {
+    margin-top: 40px;
   }
 }
 
