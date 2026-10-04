@@ -7,11 +7,12 @@ import { Process } from '../secciones/process/process';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { WebTypes } from '../secciones/web-types/web-types';
+import { Maintenance } from '../secciones/maintenance/maintenance';
 
 gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-home',
-  imports: [SiteHeaderComponent, Hero, ScrollStoryComponent, Services, Process, WebTypes],
+  imports: [SiteHeaderComponent, Hero, ScrollStoryComponent, Services, Process, WebTypes, Maintenance],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
