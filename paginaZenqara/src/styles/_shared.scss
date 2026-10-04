@@ -2,6 +2,7 @@
   color-scheme: dark;
   --bg: #080808;
   --line: #292929;
+  --heading-font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -50,8 +51,13 @@ nav a:hover {
 }
 h1,
 h2,
-h3 {
-  font-family: "Josefin Sans", Arial, sans-serif;
+h3,
+h4,
+h5,
+h6,
+.service-title {
+  font-family: var(--heading-font);
+  font-weight: 300;
   margin: 0;
 }
 .section-heading {
@@ -112,7 +118,7 @@ em {
 }
 h3 {
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
