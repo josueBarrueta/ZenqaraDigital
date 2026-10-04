@@ -1,0 +1,137 @@
+<app-site-header />
+<main>
+  <section class="intro">
+    <p class="kicker">SERVICIOS / ELIGE POR LO QUE NECESITAS</p>
+    <h1>¿Qué quieres que<br /><em>tu web haga por ti?</em></h1>
+    <p class="lead">
+      Presentar mejor tu negocio, facilitar una tarea o cuidar el alojamiento.
+      Tres necesidades diferentes; una solución definida contigo.
+    </p>
+    <div class="intro-track" aria-hidden="true">
+      <span>Una necesidad</span><i></i><span>Una decisión</span><i></i
+      ><span>Una web útil</span>
+    </div>
+  </section>
+  <section class="section" #explorer aria-labelledby="explorer-title" appReveal>
+    <p class="kicker">EXPLORA CADA SERVICIO</p>
+    <h2 id="explorer-title">Empieza por tu objetivo.</h2>
+    <div
+      class="service-choices"
+      role="group"
+      aria-label="Selecciona un servicio"
+    >
+      @for (service of services; track service.name; let i = $index) {
+        <button
+          type="button"
+          [class.selected]="selected() === i"
+          [attr.aria-pressed]="selected() === i"
+          (click)="selectService(i)"
+        >
+          <span>0{{ i + 1 }}</span
+          >{{ service.label }}<span aria-hidden="true">↗</span
+          ><i class="service-progress" #serviceProgress aria-hidden="true"></i>
+        </button>
+      }
+    </div>
+    <div class="playback-controls">
+      <span>0{{ selected() + 1 }} / 03 · {{ durations[selected()] }} s</span
+      ><button
+        type="button"
+        (click)="togglePlayback()"
+        [attr.aria-pressed]="paused()"
+      >
+        {{ paused() ? 'Reanudar recorrido' : 'Pausar recorrido' }}
+      </button>
+    </div>
+    <div [attr.aria-live]="paused() ? 'polite' : 'off'">
+      @for (service of services; track service.name; let i = $index) {
+        @if (selected() === i) {
+          <div class="service-stage panel-enter">
+            <div>
+              <p class="kicker">{{ service.name }}</p>
+              <h2>{{ service.title }}</h2>
+              <p>{{ service.description }}</p>
+              <ul>
+                @for (point of service.points; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+              <p class="scope">{{ service.scope }}</p>
+              <a
+                class="secondary"
+                routerLink="/hablemos"
+                [queryParams]="{ servicio: service.name }"
+                >Quiero hablar de este servicio ↗</a
+              >
+            </div>
+            <div
+              class="service-art"
+              [class.art-data]="i === 1"
+              [class.art-server]="i === 2"
+              aria-hidden="true"
+            >
+              <div class="art-header">ZENQARA / {{ service.visual }}</div>
+              <div class="art-core">
+                <span class="art-ring"></span><span class="art-ring"></span
+                ><span class="art-symbol">{{
+                  i === 0 ? 'Aa' : i === 1 ? '〈/〉' : '≡'
+                }}</span>
+              </div>
+              <div class="art-tags">
+                @for (tag of service.tags; track tag) {
+                  <span>{{ tag }}</span>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </section>
+  <section class="section" appReveal>
+    <p class="kicker">ANTES DE ELEGIR</p>
+    <h2>Una propuesta se valora<br /><em>por lo que incluye.</em></h2>
+    <div class="cards">
+      <article class="card">
+        <p class="kicker">01 / CONTENIDO</p>
+        <h3>Qué vas a mostrar.</h3>
+        <p>
+          El número de páginas y la cantidad de contenido cambian el trabajo.
+          Una portada breve y una web con varios servicios necesitan estructuras
+          distintas.
+        </p>
+      </article>
+      <article class="card">
+        <p class="kicker">02 / FUNCIONES</p>
+        <h3>Qué debe ocurrir.</h3>
+        <p>
+          Un enlace de contacto y una herramienta que gestiona datos requieren
+          soluciones diferentes. Definir las acciones ayuda a concretar el
+          desarrollo.
+        </p>
+      </article>
+      <article class="card">
+        <p class="kicker">03 / CONTINUIDAD</p>
+        <h3>Qué pasa después.</h3>
+        <p>
+          Conviene distinguir la entrega de la web, el mantenimiento del
+          alojamiento y los cambios futuros. Acordamos el alcance de cada parte.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="closing" appReveal>
+    <h2>Cuéntanos la necesidad.<br /><em>Definimos el siguiente paso.</em></h2>
+    <p>
+      No tienes que elegir una solución técnica de antemano. Empecemos por lo
+      que quieres conseguir y lo que ya tienes preparado.
+    </p>
+    <div class="actions">
+      <a class="primary" routerLink="/hablemos">Preparar mi consulta ↗</a
+      ><a class="secondary" routerLink="/como-trabajamos"
+        >Ver cómo trabajamos ↗</a
+      >
+    </div>
+  </section>
+</main>
+<app-site-footer />

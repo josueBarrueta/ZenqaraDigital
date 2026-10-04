@@ -1,3 +1,4 @@
+import { MailLinkComponent } from '../../shared/mail-link/mail-link';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -7,7 +8,7 @@ import {
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [],
+  imports: [MailLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './faq.html',
   styleUrl: './faq.css',

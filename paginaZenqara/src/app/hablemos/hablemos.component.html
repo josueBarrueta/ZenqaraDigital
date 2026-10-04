@@ -1,0 +1,158 @@
+<app-site-header />
+<main>
+  <section class="intro contact-intro">
+    <div>
+      <p class="kicker">HABLEMOS / EMPECEMOS POR LO IMPORTANTE</p>
+      <h1>
+        No hace falta<br />saber de webs.<br /><em>Háblanos de tu idea.</em>
+      </h1>
+      <p class="lead">
+        Te ayudamos a convertir una necesidad en un proyecto concreto. Puedes
+        preparar aquí un primer mensaje y revisarlo antes de enviarlo.
+      </p>
+      <a
+        class="secondary"
+        [routerLink]="[]"
+        fragment="consulta"
+        queryParamsHandling="preserve"
+        >Preparar mi mensaje ↓</a
+      >
+    </div>
+    <div class="message-art" aria-hidden="true">
+      <span>UNA CONVERSACIÓN PUEDE DAR FORMA A UNA IDEA</span>
+      <div class="bubble">
+        Tengo una idea<span class="typing"><i></i><i></i><i></i></span>
+      </div>
+      <div class="bubble bubble-answer">Empecemos por lo que necesitas.</div>
+      <div class="message-line"></div>
+    </div>
+  </section>
+  <section
+    id="consulta"
+    class="section"
+    appReveal
+    aria-labelledby="brief-title"
+  >
+    <p class="kicker">TU PRIMER MENSAJE</p>
+    <h2 id="brief-title">
+      Una consulta.<br /><em>Con un punto de partida.</em>
+    </h2>
+    <div class="brief-layout">
+      <div class="brief-fields">
+        <fieldset>
+          <legend>01 / ¿Qué necesitas?</legend>
+          <div class="need-options">
+            @for (option of options; track option) {
+              <label [class.selected]="selected() === option"
+                ><input
+                  type="radio"
+                  name="service"
+                  [value]="option"
+                  [checked]="selected() === option"
+                  (change)="selected.set(option)"
+                />{{ option }}</label
+              >
+            }
+          </div>
+        </fieldset>
+        <label class="field-label" for="business"
+          >02 / ¿A qué se dedica tu negocio? <span>Opcional</span></label
+        ><input
+          id="business"
+          type="text"
+          maxlength="200"
+          placeholder="Por ejemplo: un estudio de arquitectura"
+          [value]="business()"
+          (input)="business.set($any($event.target).value)"
+        /><label class="field-label" for="idea"
+          >03 / ¿Qué te gustaría conseguir? <span>Opcional</span></label
+        ><textarea
+          id="idea"
+          rows="5"
+          maxlength="2500"
+          placeholder="Cuéntanos qué quieres mostrar o qué tarea necesitas resolver…"
+          [value]="idea()"
+          (input)="idea.set($any($event.target).value)"
+        ></textarea>
+      </div>
+      <aside class="brief-summary">
+        <p class="kicker">ASÍ EMPIEZA TU CONSULTA</p>
+        <h3>Hola, Zenqara.</h3>
+        <dl>
+          <dt>Me interesa</dt>
+          <dd>{{ selected() }}</dd>
+          <dt>Mi negocio</dt>
+          <dd>{{ business().trim() || 'Lo concretamos al hablar.' }}</dd>
+          <dt>Quiero conseguir</dt>
+          <dd>{{ idea().trim() || 'Dar una dirección a mi proyecto web.' }}</dd>
+        </dl>
+        <a
+          class="primary"
+          [href]="composeUrl()"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Abrir mi mensaje en Gmail ↗</a
+        >
+        <p class="summary-note">
+          Se abrirá un borrador en Gmail. Podrás revisarlo y enviarlo tú. Esta
+          página no envía ni guarda la consulta.
+        </p>
+        <a class="secondary" href="mailto:zenqara.digital@gmail.com"
+          >Prefiero escribir desde mi correo ↗</a
+        >
+      </aside>
+    </div>
+  </section>
+  <section class="section" appReveal>
+    <p class="kicker">SI TODAVÍA NO LO TIENES CLARO</p>
+    <h2>Estas dudas también<br /><em>son un buen comienzo.</em></h2>
+    <div class="questions">
+      <details>
+        <summary>¿Y si no sé qué tipo de web necesito?</summary>
+        <p>
+          Empieza por tu negocio y por lo que debería hacer el visitante.
+          Presentar servicios, recibir consultas y gestionar información son
+          necesidades distintas; podemos estudiar cuál encaja con tu idea.
+        </p>
+      </details>
+      <details>
+        <summary>¿Qué conviene incluir en el primer mensaje?</summary>
+        <p>
+          Qué haces, qué quieres conseguir y si ya tienes web o dominio. Puedes
+          mencionar los textos, imágenes o referencias disponibles. No necesitas
+          preparar un documento técnico.
+        </p>
+      </details>
+      <details>
+        <summary>¿Cómo se concreta el presupuesto?</summary>
+        <p>
+          El número de páginas, el diseño y las funciones influyen en el
+          trabajo. La propuesta debe concretar qué se incluye y su coste para
+          que puedas valorar el alcance.
+        </p>
+      </details>
+      <details>
+        <summary>¿Puedo consultar sobre una ampliación?</summary>
+        <p>
+          Sí, puedes explicar qué tienes y qué quieres cambiar. Estudiamos la
+          necesidad y su alcance. El mantenimiento del alojamiento se ofrece
+          para las webs que desarrollamos, según las condiciones acordadas.
+        </p>
+      </details>
+    </div>
+  </section>
+  <section class="closing" appReveal>
+    <h2>Una buena conversación<br /><em>empieza con tu contexto.</em></h2>
+    <p>
+      Si prefieres conocer primero qué hacemos y cómo avanzamos, puedes explorar
+      los servicios y las etapas antes de escribirnos.
+    </p>
+    <div class="actions">
+      <a class="primary" routerLink="/servicios">Explorar los servicios ↗</a
+      ><a class="secondary" routerLink="/como-trabajamos"
+        >Conocer el proceso ↗</a
+      >
+    </div>
+  </section>
+</main>
+<app-site-footer />

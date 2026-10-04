@@ -1,0 +1,114 @@
+<app-site-header />
+<main>
+  <section class="intro">
+    <p class="kicker">CÓMO TRABAJAMOS / UN PROYECTO CON DIRECCIÓN</p>
+    <h1>Menos incertidumbre.<br /><em>Más decisiones claras.</em></h1>
+    <p class="lead">
+      Un proyecto web avanza cuando sabes qué estamos resolviendo, qué tienes
+      que revisar y qué decisión viene después.
+    </p>
+    <div class="journey-preview" aria-hidden="true">
+      @for (step of steps; track step.name; let i = $index) {
+        <span [style.--order]="i"><i></i>{{ step.name }}</span>
+      }
+    </div>
+  </section>
+  <section class="section" appReveal aria-labelledby="journey-title">
+    <p class="kicker">DEL PRIMER MENSAJE A LO QUE VIENE DESPUÉS</p>
+    <h2 id="journey-title">Recorre el proyecto.</h2>
+    <div class="journey-layout">
+      <div class="step-list" role="group" aria-label="Etapas del proyecto">
+        @for (step of steps; track step.name; let i = $index) {
+          <button
+            type="button"
+            (click)="active.set(i)"
+            [class.selected]="active() === i"
+            [attr.aria-pressed]="active() === i"
+          >
+            <span>0{{ i + 1 }}</span
+            >{{ step.name }}<span aria-hidden="true">↗</span>
+          </button>
+        }
+      </div>
+      <div class="step-content" aria-live="polite">
+        @for (step of steps; track step.name; let i = $index) {
+          @if (active() === i) {
+            <article class="panel-enter">
+              <p class="kicker">ETAPA 0{{ i + 1 }} / {{ step.name }}</p>
+              <h2>{{ step.title }}</h2>
+              <p>{{ step.text }}</p>
+              <div class="exchange">
+                <div>
+                  <span class="kicker">QUÉ APORTAS</span>
+                  <p>{{ step.input }}</p>
+                </div>
+                <div>
+                  <span class="kicker">QUÉ CONCRETAMOS</span>
+                  <p>{{ step.result }}</p>
+                </div>
+              </div>
+              <blockquote>{{ step.question }}</blockquote>
+              <div class="step-progress" aria-hidden="true">
+                <span [style.width.%]="((i + 1) / steps.length) * 100"></span>
+              </div>
+              @if (i < steps.length - 1) {
+                <button
+                  type="button"
+                  class="next-step"
+                  (click)="active.set(i + 1)"
+                >
+                  Siguiente etapa →
+                </button>
+              } @else {
+                <a class="secondary" routerLink="/hablemos"
+                  >Empezar mi proyecto ↗</a
+                >
+              }
+            </article>
+          }
+        }
+      </div>
+    </div>
+  </section>
+  <section class="section" appReveal>
+    <p class="kicker">PARA QUE EL PROYECTO AVANCE</p>
+    <h2>Los detalles que<br /><em>evitan dar vueltas.</em></h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Comentarios reunidos.</h3>
+        <p>
+          Reunir observaciones sobre una misma versión ayuda a entender qué
+          quieres cambiar y a mantener una dirección coherente.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Contenido a tiempo.</h3>
+        <p>
+          Textos, imágenes y datos de contacto influyen en la estructura y en el
+          calendario. Si faltan, conviene identificarlo desde el principio.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Ampliaciones acordadas.</h3>
+        <p>
+          Una idea nueva puede ser útil. Antes de sumarla, revisamos cómo afecta
+          al trabajo, al coste y a la planificación.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="closing" appReveal>
+    <h2>El primer paso<br /><em>puede ser sencillo.</em></h2>
+    <p>
+      Cuéntanos qué quieres conseguir. No hace falta llegar con una lista de
+      requisitos técnicos.
+    </p>
+    <div class="actions">
+      <a class="primary" routerLink="/hablemos">Preparar mi consulta ↗</a
+      ><a class="secondary" routerLink="/servicios"
+        >Explorar los servicios ↗</a
+      >
+    </div>
+  </section>
+</main>
+<app-site-footer />
